@@ -1,12 +1,13 @@
 {
   "name": "st-andrews-anglican-fellowship",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "keystone": "^0.3.19",
     "async": "^1.5.0",
+    "dotenv": "^2.0.0",
+    "keystone": "latest",
     "lodash": "^4.13.1",
-    "dotenv": "^2.0.0"
+    "pug": "^2.0.0-beta6"
   },
   "devDependencies": {
     "eslint": "^2.12.0",
