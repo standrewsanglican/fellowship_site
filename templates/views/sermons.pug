@@ -1,0 +1,15 @@
+extends ../layouts/default
+
+block content
+    audio#player(src= "" autoplay controls)
+    table
+        each sermon in sermons
+            tr        
+                td= sermon.preacher.first + " " + sermon.preacher.last 
+                td= sermon._.date.format('D MMM YYYY')
+                td
+                    button.btn.btn-secondary.play_sermon(id= sermon._id, data-recording= sermon.recording)
+                        i.fa.fa-play-circle( aria-hidden="true") 
+
+block js
+    script(src="/js/player.js")
