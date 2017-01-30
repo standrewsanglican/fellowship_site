@@ -1,14 +1,21 @@
-@sta-primary : #DAA520;
-@sta-secondary : #B8860B;
+@sta-primary : #314f6f;
+@sta-secondary : #FFFFFF;
+@gray-darker:  lighten(#000, 13.5%); // #222
+@gray-dark:    lighten(#000, 20%);   // #333
+@gray:         lighten(#000, 33.5%); // #555
+@gray-light:   lighten(#000, 46.7%); // #777
+@gray-lighter: lighten(#000, 93.5%); // #eee
+@sta-text-primary: @gray-darker;
+@sta-text-secondary: @sta-secondary;
 
-@sta-text-primary: #000080;
 
 body {
     background: @sta-secondary
 }
 
 .navbar {
-    background: @sta-primary;
+    background: @sta-secondary;
+    border-color: @sta-primary;
 }
 
 #site .navbar-default .navbar-nav > li > a
@@ -17,9 +24,41 @@ body {
     
 }
 
+#site .navbar-default .navbar-nav > li.active {
+    background-color: @sta-primary;
+}
+
+#site .navbar-default .navbar-nav > li.active > a {
+    color: @sta-text-secondary;
+    background-color: @sta-primary;    
+}
+
 #site td, #site th {
     border-color: whitesmoke;
     border-width: 2px;
     border-radius: 4px;
     border-style: groove;
+}
+
+#site .one-center-flex {
+        display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-self: center;
+    align-items: center;
+}
+
+#sermons {
+    overflow-y: scroll;
+}
+
+.sta-sermon-group-item * {
+    display: flex;
+    margin-right: .5em;
+    
+}
+
+.sta-sermon-group-item {
+    justify-content: space-between;
+    display: flex;    
 }

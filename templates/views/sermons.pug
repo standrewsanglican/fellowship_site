@@ -1,15 +1,22 @@
 extends ../layouts/default
+include ../mixins/sta_sermon
+
 
 block content
-    audio#player(src= "" autoplay controls)
-    table
-        each sermon in sermons
-            tr        
-                td= sermon.preacher.first + " " + sermon.preacher.last 
-                td= sermon._.date.format('D MMM YYYY')
-                td
-                    button.btn.btn-secondary.play_sermon(id= sermon._id, data-recording= sermon.recording)
-                        i.fa.fa-play-circle( aria-hidden="true") 
+    #content.one-center-flex
+        audio#player(src= "" autoplay controls)
+        .form-inline
+            label.sr-only Filter Sermons
+            .input-group
+                .input-group-addon Search
+                input#sermon_search.form-control(placeholder='Search Sermons...')
+        #sermons
+            ul.list-group
+                each sermon in sermons
+                    +sta_sermon(sermon)
+                        
 
 block js
     script(src="/js/player.js")
+    script(src="/js/site.js")
+    

@@ -8,8 +8,8 @@ exports = module.exports = function (req, res) {
 	// Set locals
 	locals.section = 'sermons';
 
-	// Load the galleries by sortOrder
-	view.query('sermons', keystone.list('Sermon').model.find());
+	// Load the sermons
+	view.query('sermons', keystone.list('Sermon').model.find().sort('-date' ));
 
 	// Render the view
 	view.render('sermons');

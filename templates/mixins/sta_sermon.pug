@@ -1,0 +1,12 @@
+mixin sta_sermon(sermon)
+    li.list-group-item.sta-sermon-group-item(data-search= sermon.preacher.full)
+        span
+            strong= sermon.preacher.first + " " + sermon.preacher.last 
+        if sermon.text
+            a(href="https://www.biblegateway.com/passage/?search=" + sermon.text + "&version=ESV") #{sermon.text}
+        span
+            text= sermon._.date.format('D MMM YYYY')
+        span
+            button.btn.btn-secondary.play_sermon(id= sermon._id, data-recording= sermon.recording)
+                i.fa.fa-play-circle( aria-hidden="true")
+        

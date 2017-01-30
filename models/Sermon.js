@@ -2,16 +2,16 @@ var keystone = require('keystone');
 var Types = keystone.Field.Types;
 var moment = require('moment');
 
-var Sermon = new keystone.List('Sermon')
+var Sermon = new keystone.List('Sermon', { defaultSort: "-date"})
 
 Sermon.add({
-    title: {type: Types.Text},
-    preacher: {type: Types.Name },
-    given_on: {type: Types.Text},
-    text: {type: Types.Text},
-    transcript: {type: Types.Text},
-    recording: {type: Types.Text},
-    date: {type: Types.Date},    
+    title: {type: Types.Text, initial: true},
+    preacher: {type: Types.Name, initial: true },
+    given_on: {type: Types.Text, initial: true},
+    text: {type: Types.Text, initial: true},
+    transcript: {type: Types.Text, initial: true},
+    recording: {type: Types.Text, initial: true},
+    date: {type: Types.Date, initial: true},    
 })
 
 //Make sure date is normal
@@ -30,5 +30,8 @@ Sermon.schema.pre('save', function(next){
         next();
     }
 })
-
+Sermon.schema.virtual('text.urlEncoded').get(function () {
+    return encodeURI(this.text);
+})
+Sermon.defaultColumns = 'title, preacher, date'
 Sermon.register();
