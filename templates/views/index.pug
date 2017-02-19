@@ -2,22 +2,20 @@ extends ../layouts/default
 
 block content
 	.container: .jumbotron
-		img(src='/images/logo.svg', width='160')
-		h1 Welcome
-		p This is your new <a href='http://keystonejs.com' target='_blank'>KeystoneJS</a> website.
-		p It includes the latest versions of
-			| <a href='http://getbootstrap.com/' target='_blank'>Bootstrap</a>
-			| and <a href='http://www.jquery.com/' target='_blank'>jQuery</a>.
-		p Visit the <a href='http://keystonejs.com/guide' target='_blank'>Getting Started</a> guide to learn how to customise it.
-		hr
-		if user && user.canAccessKeystone
-			p
-				a(href='/keystone').btn.btn-lg.btn-primary Open the Admin UI
-		else
-			p We have created a default Admin user for you with the email <strong>admin@saintandrewsanglican.org</strong> and the password <strong>admin</strong>.
-			p
-				a(href='/keystone/signin', style='margin-right: 10px').btn.btn-lg.btn-primary Sign in
-				|  to use the Admin UI.
-		hr
-		p Remember to <a href='https://github.com/keystonejs/keystone' target='_blank'>Star KeystoneJS on GitHub</a> and
-			| <a href='https://twitter.com/keystonejs' target='_blank'>follow @keystonejs</a> on twitter for updates.
+		#welcome(style='display:flex;flex-direction:column;justify-content: center;')
+			h2 Welcome to Saint Andrews Anglican Fellowship
+			h3 The Reverend Phil Lyman, Rector
+			br
+			p Worship Sunday @ 10:15 am
+			br
+			iframe(src='//www.google.com/maps/embed/v1/place?q=2103%20Puddingtons%20Patent%20Way%20Gambrills%20MD%2021054&zoom=14&key=' + map_key
+			style='height:35em; width: 90%')
+			p Bell Branch SDA Church
+			p 2103 Puddingtons Patent Way
+			p Gambrills, MD  21054
+			br
+			p Nursery care (birth thru 2 yrs) and Children's Church (3 yrs thru 2nd grade) 
+				| 
+				br 
+				| provided during sermon time.
+

@@ -36,6 +36,7 @@ keystone.set('locals', {
 	env: keystone.get('env'),
 	utils: keystone.utils,
 	editable: keystone.content.editable,
+	map_key: process.env.GOOGLE_MAPS_API_KEY
 });
 
 // Load your project's Routes
